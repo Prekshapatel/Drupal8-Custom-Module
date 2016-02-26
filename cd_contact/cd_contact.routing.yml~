@@ -1,0 +1,15 @@
+cd_contact.contact:
+  path: 'cd/contact'
+  defaults:
+    _form: '\Drupal\cd_contact\Form\AddForm'
+    _title: 'Contact Form'
+  requirements:
+    _permission: 'access content'
+
+cd_contact.list:
+  path: 'cd/contact/list'
+  defaults:
+    _controller: '\Drupal\cd_contact\Controller\Contact::getAll'
+    _title: 'Contact List'
+  requirements:
+    _permission: 'administer content'

@@ -1,0 +1,10 @@
+<?php
+
+namespace Drupal\cd_contact\Form;
+
+print_r('called'); exit;
+class CdContactStorage {
+  public function add($name, $message) { 
+    db_insert('cd_contact')->fields(array('name' => $name, 'message' => $message))->execute();
+  }
+}

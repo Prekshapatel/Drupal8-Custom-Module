@@ -1,0 +1,60 @@
+<?php
+/**
+ * @file
+ * Contains \Drupal\cd_contact\Form\CustomContactForm.
+ */
+
+namespace Drupal\cd_contant\Form;
+
+use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormStateInterface;
+//use Drupal\Component\Utility\UrlHelper;
+
+/**
+ * Contact form.
+ */
+class CustomContactForm extends FormBase {
+  /**
+   * {@inheritdoc}
+   */
+  public function getFormId() {
+    return 'custom_contact_form';
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['name'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Name'),
+    );
+
+    $form['message'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Message'),
+    );
+
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Submit'),
+    );
+
+    return $form;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    foreach ($form_state->getValues() as $key => $value) {
+      drupal_set_message($key . ': ' . $value);
+    }
+  }
+}

@@ -1,0 +1,13 @@
+cd_contact.contact:
+  title: 'Contact'
+  description: 'Contact Form'
+  route_name: cd_contact.contact
+  weight: 2
+  menu_name: main
+
+contact.list:
+  title: 'Contact List'
+  description: 'List all the contact messages'
+  parent: system.admin_config_development
+  route_name: cd_contact.list
+  weight: 100
