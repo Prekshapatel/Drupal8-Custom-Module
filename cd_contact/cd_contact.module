@@ -1,0 +1,18 @@
+<?php
+
+use Drupal\Core\Database\Database;
+
+/**
+ *  Update hook to add new column in contact table.
+ */
+
+function cd_contact_update_8001() {
+  $email = array(
+    'type' => 'varchar',
+    'description' => "Email Address",
+    'length' => 20,
+    'not null' => FALSE,
+  ); 
+ $schema = Database::getConnection()->schema();
+ $schema->addField('cd_contact', 'email', $email);
+}

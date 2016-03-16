@@ -1,5 +1,5 @@
-name:Cignex Contact
-description:Cignex Custom Contact Form
-type:module
-core:8.x
-package:CD Custom
+name: Custom Contact
+description: 'Custom Contact Form.'
+type: module
+core: 8.x
+package: CD Custom

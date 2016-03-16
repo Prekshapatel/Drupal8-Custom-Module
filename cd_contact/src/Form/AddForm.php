@@ -38,6 +38,11 @@ class AddForm extends FormBase {
       '#title' => t('Message'),
     );
 
+    $form['email'] = array(
+      '#type' => 'email',
+      '#title' => t('Email'),
+    );
+
     $form['submit'] = array(
       '#type' => 'submit',
       '#value' => t('Submit'),
@@ -62,7 +67,9 @@ class AddForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $name = $form_state->getValue('name');
     $message = $form_state->getValue('message');
-    $result = db_insert('cd_contact')->fields(array('name' => $name, 'message' => $message))->execute();
+    $email = $form_state->getValue('email');
+
+    $result = db_insert('cd_contact')->fields(array('name' => $name, 'message' => $message, 'email' => $email))->execute();
     if ($result) {
       drupal_set_message('Contact form is successfully submitted.');
       //CdContactStorage::add(check_plain($name), check_plain($message));
